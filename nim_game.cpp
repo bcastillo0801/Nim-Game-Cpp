@@ -29,7 +29,12 @@ if (opcion == 1) {
 		} 
 		else if (opcion == 2) {
 			//mostrar Instrucciones
-			cout << "\nInstrucciones: Quita piezas hasta que el otro pierda." << endl;
+			cout << "\nInstrucciones: selecciona la fila y luego los elementos que desees eliminar para ganar." << endl;
+		    cout<<"trata de no dejar elementos para para perder"<<endl;
+			cout<<"1. hay 3 filas con 3,5 y 7 objetos respectivamente" <<endl;
+			cout<<"2. en un turno, retira cualquier cantidad de una sola fila" <<endl;
+			cout<<"3. si retiras el ultimo objeto o te toca jugar y solo queda uno, ¡¡PIERDES!!" <<endl;
+			cout<<"4. virtoria es igual a 3 puntos, empate = a 1 punto, derrota = 0 puntos" <<endl;
 		} 
 		else if (opcion == 3) {
 			continuarPrograma = false;
