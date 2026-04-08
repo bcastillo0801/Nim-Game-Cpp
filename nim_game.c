@@ -11,7 +11,9 @@ bool continuarPrograma = true; // Variable booleana para mantener el ciclo while
    
     printf("--------WELCOME TO NIM GAME--------");
 
-    
+    cout << "Nombre del Jugador 1: ";cin >> jugador1;
+cout << "Nombre del Jugador 2: ";cin >> jugador2;
+
 
     return 0;
 } 
