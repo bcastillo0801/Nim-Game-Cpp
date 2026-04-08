@@ -15,5 +15,17 @@ bool continuarPrograma = true; // Variable booleana para mantener el ciclo while
 cout << "Nombre del Jugador 2: ";cin >> jugador2;
 
 
+do {
+        // Menú Principal 
+        cout << "\n--- MENU PRINCIPAL ---" << endl;
+        cout << "1. Iniciar Juego" << endl;
+        cout << "2. Instrucciones" << endl;
+        cout << "3. Salir" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+} while (continuarPrograma);
+
+
     return 0;
 } 
