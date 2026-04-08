@@ -9,10 +9,6 @@ int main() {
 	int puntos1 = 0, puntos2 = 0, totalPartidas = 0;
 	int opcion;
 	bool continuarPrograma = true;
-
-    cout << "--------WELCOME TO NIM GAME--------" << endl;
-
-
     // Ingresos de nombres de jugadores
     cout << "------- WELCOME TO NIM_GAME -------" << endl;
 	cout << "Nombre del Jugador 1: "; cin >> jugador1;
