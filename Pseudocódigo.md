@@ -23,7 +23,12 @@ Inicio
         si opcion == 1 entonces
             imprimir "Iniciando el juego..."
         sino si opcion == 2 entonces
-            imprimir "Instrucciones: Quita piezas hasta que el otro pierda."
+            imprimir "Instrucciones: selecciona la fila y luego los elementos que desees eliminar para ganar."
+            imprimir "trata de no dejar elementos para para perder"
+            imprimir "1. hay 3 filas con 3,5 y 7 objetos respectivamente"
+            imprimir "2. en un turno, retira cualquier cantidad de una sola fila"
+            imprimir "3. si retiras el ultimo objeto o te toca jugar y solo queda uno, ¡¡PIERDES!!"
+            imprimir "4. virtoria es igual a 3 puntos, empate = a 1 punto, derrota = 0 puntos"
         sino si opcion == 3 entonces
             continuar_programa = false
             imprimir "Saliendo del programa..."
