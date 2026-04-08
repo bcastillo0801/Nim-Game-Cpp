@@ -7,9 +7,18 @@ using namespace std;
 int main() {
 
     // Declarar variables 
-    printf("--------WELCOME TO NIM GAME--------");
+    string jugador1, jugador2;
+	int puntos1 = 0, puntos2 = 0, totalPartidas = 0;
+	int opcion;
+	bool continuarPrograma = true;
+
+    cout << "--------WELCOME TO NIM GAME--------" << endl;
+
 
     // Ingresos de nombres de jugadores
+    cout << "------- WELCOME TO NIM_GAME -------" << endl;
+	cout << "Nombre del Jugador 1: "; cin >> jugador1;
+	cout << "Nombre del Jugador 2: "; cin >> jugador2;
 
     // Iniciar ciclo do while
 
