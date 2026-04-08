@@ -2,8 +2,6 @@
 #include <string>
 
 using namespace std;
-
-// Función Principal
 int main() {
 
     // Declarar variables 
