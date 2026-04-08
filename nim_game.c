@@ -26,6 +26,16 @@ do {
 
 } while (continuarPrograma);
 
+( adentro del do{ )
+	if (opcion == 1) {
+	    //Iniciar Juego
+	} else if (opcion == 2) {
+            //MostrarInstrucciones
+        } else if (opcion == 3) {
+            continuarPrograma = false;
+        } 
+
+
 
     return 0;
 } 
