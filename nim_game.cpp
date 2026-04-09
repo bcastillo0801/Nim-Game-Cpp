@@ -9,10 +9,8 @@ int main() {
 	int puntos_1 = 0, puntos_2 = 0, total_partidas = 0;
 	int opcion;
 	bool continuar_programa = true;
-    // Ingresos de nombres de jugadores
-    cout << "------- WELCOME TO NIM_GAME -------" << endl;
-	cout << "Nombre del Jugador 1: "; cin >> jugador_1;
-	cout << "Nombre del Jugador 2: "; cin >> jugador_2;
+
+	cout << "------- WELCOME TO NIM_GAME -------" << endl;
   
     // Menú Principal e inicio del ciclo do while
    
@@ -23,9 +21,14 @@ int main() {
 		cout << "3. Salir" << endl;
 		cout << "Seleccione una opcion: ";
 		cin >> opcion;
-    // Opciones
-if (opcion == 1) {
-			cout <<"\nIniciando el juego..."<< endl;
+
+		// Opciones del menu
+		if (opcion == 1) {
+			cout <<"\nJuego Nim iniciado..."<< endl;
+
+			// Ingresos de nombres de jugadores    // Ingresos de nombres de jugadores
+			cout << "Nombre del Jugador 1: "; cin >> jugador_1;
+			cout << "Nombre del Jugador 2: "; cin >> jugador_2;
 		} 
 		else if (opcion == 2) {
 			//mostrar Instrucciones
