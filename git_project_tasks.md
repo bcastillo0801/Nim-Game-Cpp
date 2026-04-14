@@ -87,8 +87,6 @@
 
 ### Opcion #2 "Instrucciones" 
 * Mostrar instrucciones dentro de la opcion 2 
-* 
-* 
 
 ### Opcion #3 "Salir" 
 * Salir del diclo del programa 
