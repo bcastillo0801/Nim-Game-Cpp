@@ -2,6 +2,23 @@
 #include <string>
 
 using namespace std;
+// Función para verificar jugadores
+void capturarJugadores(string &jugador1, string &jugador2) {
+    cout << "Ingrese el nombre del Jugador 1: ";
+    getline(cin, jugador1);
+
+    cout << "Ingrese el nombre del Jugador 2: ";
+    getline(cin, jugador2);
+}
+
+void inicializarJuego(int filas[], int &turno, int &partidas) {
+    filas[0] = 3;
+    filas[1] = 5;
+    filas[2] = 7;
+
+    turno = 0;      // 0 = jugador 1, 1 = jugador 2
+    partidas = 0;   // contador de partidas
+}
 int main() {
 
     // Declarar variables 
@@ -26,9 +43,31 @@ int main() {
 		if (opcion == 1) {
 			cout <<"\nJuego Nim iniciado..."<< endl;
 
-			// Ingresos de nombres de jugadores    // Ingresos de nombres de jugadores
-			cout << "Nombre del Jugador 1: "; cin >> jugador_1;
-			cout << "Nombre del Jugador 2: "; cin >> jugador_2;
+    string jugador1, jugador2;
+    int filas[3];
+    int turno;
+    int partidas;
+
+    // Captura de jugadores
+    capturarJugadores(jugador1, jugador2);
+
+    // Inicialización del juego
+    inicializarJuego(filas, turno, partidas);
+
+    // Mostrar estado inicial (para verificar)
+    cout << "\n--- Estado Inicial ---\n";
+    cout << "Jugador 1: " << jugador1 << endl;
+    cout << "Jugador 2: " << jugador2 << endl;
+
+    cout << "Filas: ";
+    for (int i = 0; i < 3; i++) {
+        cout << filas[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Turno inicial: " << (turno == 0 ? jugador1 : jugador2) << endl;
+    cout << "Partidas jugadas: " << partidas << endl;
+
 		} 
 		else if (opcion == 2) {
 			//mostrar Instrucciones
