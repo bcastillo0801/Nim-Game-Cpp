@@ -4,11 +4,11 @@
 using namespace std;
 // Función para verificar jugadores
 void capturarJugadores(string &jugador1, string &jugador2) {
-    cout << "Ingrese el nombre del Jugador 1: ";
-    getline(cin, jugador1);
+    cout << "Ingrese el nombre del Jugador 1:\n ";
+    cin >> jugador1;
 
     cout << "Ingrese el nombre del Jugador 2: ";
-    getline(cin, jugador2);
+    cin >> jugador2;
 }
 
 void inicializarJuego(int filas[], int &turno, int &partidas) {
@@ -18,6 +18,24 @@ void inicializarJuego(int filas[], int &turno, int &partidas) {
 
     turno = 0;      // 0 = jugador 1, 1 = jugador 2
     partidas = 0;   // contador de partidas
+
+
+}
+
+void dibujar_tablero(int f1, int f2, int f3) {
+    // Dibuja los objetos con caracteres 
+    cout << "\nTABLERO ACTUAL:" << endl;
+    cout << "Fila 1 (" << f1 << "): ";
+    for(int i=0; i<f1; i++) cout << " @ "; 
+    cout << endl;
+
+    cout << "Fila 2 (" << f2 << "): ";
+    for(int i=0; i<f2; i++) cout << " @ ";
+    cout << endl;
+
+    cout << "Fila 3 (" << f3 << "): ";
+    for(int i=0; i<f3; i++) cout << " @ ";
+    cout << endl;
 }
 int main() {
 
@@ -38,7 +56,7 @@ int main() {
 		cout << "3. Salir" << endl;
 		cout << "Seleccione una opcion: ";
 		cin >> opcion;
-
+        
 		// Opciones del menu
 		if (opcion == 1) {
 			cout <<"\nJuego Nim iniciado..."<< endl;
@@ -53,6 +71,8 @@ int main() {
 
     // Inicialización del juego
     inicializarJuego(filas, turno, partidas);
+    dibujar_tablero(filas[0], filas[1], filas[2]);
+
 
     // Mostrar estado inicial (para verificar)
     cout << "\n--- Estado Inicial ---\n";
@@ -87,6 +107,8 @@ int main() {
 		}
 		
 	} while (continuar_programa);
+    
+ 
 
 
     return 0;
