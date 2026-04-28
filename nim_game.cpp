@@ -61,32 +61,48 @@ int main() {
 		if (opcion == 1) {
 			cout <<"\nJuego Nim iniciado..."<< endl;
 
-    string jugador1, jugador2;
-    int filas[3];
-    int turno;
-    int partidas;
+			string jugador1, jugador2;
+			int filas[3];
+			int turno;
+			int partidas;
+			bool partidaActiva = true;
 
-    // Captura de jugadores
-    capturarJugadores(jugador1, jugador2);
+			// Captura de jugadores
+			capturarJugadores(jugador1, jugador2);
 
-    // Inicialización del juego
-    inicializarJuego(filas, turno, partidas);
-    dibujar_tablero(filas[0], filas[1], filas[2]);
+			// Inicialización del juego
+			inicializarJuego(filas, turno, partidas);
 
+			// Mostrar estado inicial (para verificar)
+			cout << "\n--- Estado ---\n";
+			cout << "Jugador 1: " << jugador1 << endl;
+			cout << "Jugador 2: " << jugador2 << endl;
 
-    // Mostrar estado inicial (para verificar)
-    cout << "\n--- Estado Inicial ---\n";
-    cout << "Jugador 1: " << jugador1 << endl;
-    cout << "Jugador 2: " << jugador2 << endl;
+			cout << "Turno inicial: " << (turno == 0 ? jugador1 : jugador2) << endl;
+			cout << "Partidas jugadas: " << partidas << endl;
 
-    cout << "Filas: ";
-    for (int i = 0; i < 3; i++) {
-        cout << filas[i] << " ";
-    }
-    cout << endl;
+			while (partidaActiva) {
+                string nombreActual = (turno % 2 != 0) ? jugador1 : jugador2;
+                int totalObjetos = filas[0] + filas[1] + filas[2];
 
-    cout << "Turno inicial: " << (turno == 0 ? jugador1 : jugador2) << endl;
-    cout << "Partidas jugadas: " << partidas << endl;
+                // Regla de Empate 
+
+                // Regla de Pérdida por 1 objeto restante 
+                
+                // Mostrar turno y tablero
+                cout << "\n----------------------------" << endl;
+                cout << "Turno de: " << nombreActual << endl;
+				dibujar_tablero(filas[0], filas[1], filas[2]);
+
+                int elegida, cantidad;
+                cout << "Elija fila (1, 2 o 3): ";
+                cin >> elegida;
+                cout << "Cantidad a retirar: ";
+                cin >> cantidad;
+
+                // Validación de movimiento
+
+            }
 
 		} 
 		else if (opcion == 2) {
