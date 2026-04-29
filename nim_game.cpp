@@ -72,6 +72,7 @@ int main() {
       cout << "\nJuego Nim iniciado..." << endl;
 
       string jugador1, jugador2;
+      int puntos1 = 0, puntos2 = 0, totalPartidas = 0;
       int filas[3];
       int turno;
       int partidas;
