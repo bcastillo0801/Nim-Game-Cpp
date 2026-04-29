@@ -149,6 +149,24 @@ int main() {
                     cout << ">> Movimiento invalido. Intente de nuevo." << endl;
                 }
       }
+        // Mostrar puntos acumulados
+                    cout << "\n** PUNTOS ACTUALES **" << endl;
+                    cout << jugador1 << ": " << puntos1 << endl;
+                    cout << jugador2 << ": " << puntos2 << endl;
+
+                    char repetir;
+                    cout << "\n¿Desea jugar otra partida? (s/n): ";
+                    cin >> repetir;
+                    if (repetir == 'n' || repetir == 'N') {
+                        // Resumen final
+                        cout << "\n===============================" << endl;
+                        cout << "RESUMEN FINAL" << endl;
+                        cout << "Partidas jugadas: " << totalPartidas << endl;
+                        cout << "Puntos totales " << jugador1 << ": " << puntos1 << endl;
+                        cout << "Puntos totales " << jugador2 << ": " << puntos2 << endl;
+                        cout << "===============================" << endl;
+                        continuarPrograma = false;
+                    }
 
     } else if (opcion == 2) {
       // mostrar Instrucciones
