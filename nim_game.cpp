@@ -78,6 +78,7 @@ int main() {
       int turno;
       int partidas;
       bool partidaActiva = true;
+      totalPartidas++;
 
       // Captura de jugadores
       capturarJugadores(jugador1, jugador2);
