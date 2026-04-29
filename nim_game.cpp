@@ -53,7 +53,8 @@ int main() {
   string jugador_1, jugador_2;
   int puntos_1 = 0, puntos_2 = 0, total_partidas = 0;
   int opcion;
-  bool continuar_programa = true;
+  bool continuar_programa = true; // Variable booleana requerida para terminar el programa
+
 
   cout << "------- WELCOME TO NIM_GAME -------" << endl;
 
@@ -165,7 +166,7 @@ int main() {
                         cout << "Puntos totales " << jugador1 << ": " << puntos1 << endl;
                         cout << "Puntos totales " << jugador2 << ": " << puntos2 << endl;
                         cout << "===============================" << endl;
-                        continuarPrograma = false;
+                        continuar_programa = false;
                     }
 
     } else if (opcion == 2) {
