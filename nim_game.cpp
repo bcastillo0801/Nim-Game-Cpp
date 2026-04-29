@@ -38,6 +38,15 @@ void dibujar_tablero(int f1, int f2, int f3) {
     cout << " @ ";
   cout << endl;
 }
+
+bool esMovimientoValido(int fila, int cantidad, int r1, int r2, int r3) {
+    if (cantidad <= 0) return false;
+    if (fila == 1 && cantidad <= r1) return true;
+    if (fila == 2 && cantidad <= r2) return true;
+    if (fila == 3 && cantidad <= r3) return true;
+    return false;
+}
+
 int main() {
 
   // Declarar variables
@@ -102,6 +111,22 @@ int main() {
         cin >> cantidad;
 
         // Validación de movimiento
+        if (esMovimientoValido(elegida, cantidad, filas[0], filas[1], filas[2])) {
+                    if (elegida == 1) filas[0] -= cantidad;
+                    else if (elegida == 2) filas[1] -= cantidad;
+                    else if (elegida == 3) filas[2] -= cantidad;
+
+                    // Si el jugador retiró el último objeto, pierde
+                    if (filas[0] + filas[1] + filas[2] == 0) {
+                        cout << "\n" << nombreActual << " retiro el ultimo objeto y PIERDE." << endl;
+                        if (turno % 2 != 0) puntos2 += 3; else puntos1 += 3;
+                        partidaActiva = false;
+                    } else {
+                        turno++; // Siguiente turno
+                    }
+                } else {
+                    cout << ">> Movimiento invalido. Intente de nuevo." << endl;
+                }
       }
 
     } else if (opcion == 2) {
