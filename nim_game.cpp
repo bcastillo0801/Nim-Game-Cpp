@@ -3,15 +3,15 @@
 
 using namespace std;
 // Función para verificar jugadores
-void capturarJugadores(string &jugador1, string &jugador2) {
+void capturar_jugadores(string &jugador_1, string &jugador_2) {
   cout << "Ingrese el nombre del Jugador 1: ";
-  cin >> jugador1;
+  cin >> jugador_1;
 
   cout << "Ingrese el nombre del Jugador 2: ";
-  cin >> jugador2;
+  cin >> jugador_2;
 }
 
-void inicializarJuego(int filas[], int &turno, int &partidas) {
+void inicializar_juego(int filas[], int &turno, int &partidas) {
   filas[0] = 3;
   filas[1] = 5;
   filas[2] = 7;
@@ -39,7 +39,7 @@ void dibujar_tablero(int f1, int f2, int f3) {
   cout << endl;
 }
 
-bool esMovimientoValido(int fila, int cantidad, int r1, int r2, int r3) {
+bool esMovimiento_valido(int fila, int cantidad, int r1, int r2, int r3) {
     if (cantidad <= 0) return false;
     if (fila == 1 && cantidad <= r1) return true;
     if (fila == 2 && cantidad <= r2) return true;
@@ -72,59 +72,59 @@ int main() {
     if (opcion == 1) {
       cout << "\nJuego Nim iniciado..." << endl;
 
-      string jugador1, jugador2;
-      int puntos1 = 0, puntos2 = 0, totalPartidas = 0;
+      string jugador_1, jugador_2;
+      int puntos_1 = 0, puntos_2 = 0, total_partidas = 0;
       int filas[3];
       int turno;
       int partidas;
-      bool partidaActiva = true;
-      totalPartidas++;
+      bool partida_activa = true;
+      total_partidas++;
 
       // Captura de jugadores
-      capturarJugadores(jugador1, jugador2);
+      capturar_jugadores(jugador_1, jugador_2);
 
       // Inicialización del juego
-      inicializarJuego(filas, turno, partidas);
+      inicializar_juego(filas, turno, partidas);
 
       // Mostrar estado inicial (para verificar)
       cout << "\n--- Estado ---\n";
-      cout << "Jugador 1: " << jugador1 << endl;
-      cout << "Jugador 2: " << jugador2 << endl;
+      cout << "Jugador 1: " << jugador_1 << endl;
+      cout << "Jugador 2: " << jugador_2 << endl;
 
-      cout << "Turno inicial: " << (turno == 0 ? jugador1 : jugador2) << endl;
+      cout << "Turno inicial: " << (turno == 0 ? jugador_1 : jugador_2) << endl;
       cout << "Partidas jugadas: " << partidas << endl;
 
-      while (partidaActiva) {
-        string nombreActual = (turno % 2 != 0) ? jugador1 : jugador2;
-        int totalObjetos = filas[0] + filas[1] + filas[2];
+      while (partida_activa) {
+        string nombre_actual = (turno % 2 != 0) ? jugador_1 : jugador_2;
+        int total_objetos = filas[0] + filas[1] + filas[2];
 
           // Regla de Empate
-                          if (totalObjetos == 0) {
+                          if (total_objetos == 0) {
                               cout << "\n¡EMPATE! No quedan objetos para tomar." << endl;
-                              puntos1 += 1;
-                              puntos2 += 1;
-                              partidaActiva = false;
+                              puntos_1 += 1;
+                              puntos_2 += 1;
+                              partida_activa = false;
                               break;
                           }
 
                           // Regla de Pérdida por 1 objeto restante
-                          if (totalObjetos == 1) {
-                              cout << "\n" << nombreActual << ", solo queda 1 objeto. ¡HAS PERDIDO!" << endl;
+                          if (total_objetos == 1) {
+                              cout << "\n" << nombre_actual << ", solo queda 1 objeto. ¡HAS PERDIDO!" << endl;
                               if (turno % 2 != 0) {
-                                  puntos2 += 3; // Gana el otro
-                                  cout << "¡Ganador de la partida: " << jugador2 << "!" << endl;
+                                  puntos_2 += 3; // Gana el otro
+                                  cout << "¡Ganador de la partida: " << jugador_2 << "!" << endl;
                               } else {
-                                  puntos1 += 3;
-                                  cout << "¡Ganador de la partida: " << jugador1 << "!" << endl;
+                                  puntos_1 += 3;
+                                  cout << "¡Ganador de la partida: " << jugador_1 << "!" << endl;
                               }
-                              partidaActiva = false;
+                              partida_activa = false;
                               break;
                           }
         // Regla de Pérdida por 1 objeto restante
 
         // Mostrar turno y tablero
         cout << "\n----------------------------" << endl;
-        cout << "Turno de: " << nombreActual << endl;
+        cout << "Turno de: " << nombre_actual << endl;
         dibujar_tablero(filas[0], filas[1], filas[2]);
 
         int elegida, cantidad;
@@ -134,16 +134,16 @@ int main() {
         cin >> cantidad;
 
         // Validación de movimiento
-        if (esMovimientoValido(elegida, cantidad, filas[0], filas[1], filas[2])) {
+        if (esMovimiento_valido(elegida, cantidad, filas[0], filas[1], filas[2])) {
                     if (elegida == 1) filas[0] -= cantidad;
                     else if (elegida == 2) filas[1] -= cantidad;
                     else if (elegida == 3) filas[2] -= cantidad;
 
                     // Si el jugador retiró el último objeto, pierde
                     if (filas[0] + filas[1] + filas[2] == 0) {
-                        cout << "\n" << nombreActual << " retiro el ultimo objeto y PIERDE." << endl;
-                        if (turno % 2 != 0) puntos2 += 3; else puntos1 += 3;
-                        partidaActiva = false;
+                        cout << "\n" << nombre_actual << " retiro el ultimo objeto y PIERDE." << endl;
+                        if (turno % 2 != 0) puntos_2 += 3; else puntos_1 += 3;
+                        partida_activa = false;
                     } else {
                         turno++; // Siguiente turno
                     }
@@ -153,8 +153,8 @@ int main() {
       }
         // Mostrar puntos acumulados
                     cout << "\n** PUNTOS ACTUALES **" << endl;
-                    cout << jugador1 << ": " << puntos1 << endl;
-                    cout << jugador2 << ": " << puntos2 << endl;
+                    cout << jugador_1 << ": " << puntos_1 << endl;
+                    cout << jugador_2 << ": " << puntos_2 << endl;
 
                     char repetir;
                     cout << "\n¿Desea jugar otra partida? (s/n): ";
@@ -163,9 +163,9 @@ int main() {
                         // Resumen final
                         cout << "\n===============================" << endl;
                         cout << "RESUMEN FINAL" << endl;
-                        cout << "Partidas jugadas: " << totalPartidas << endl;
-                        cout << "Puntos totales " << jugador1 << ": " << puntos1 << endl;
-                        cout << "Puntos totales " << jugador2 << ": " << puntos2 << endl;
+                        cout << "Partidas jugadas: " << total_partidas << endl;
+                        cout << "Puntos totales " << jugador_1 << ": " << puntos_1 << endl;
+                        cout << "Puntos totales " << jugador_2 << ": " << puntos_2 << endl;
                         cout << "===============================" << endl;
                         continuar_programa = false;
                     }
