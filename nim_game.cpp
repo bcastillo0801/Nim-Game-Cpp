@@ -96,8 +96,28 @@ int main() {
         string nombreActual = (turno % 2 != 0) ? jugador1 : jugador2;
         int totalObjetos = filas[0] + filas[1] + filas[2];
 
-        // Regla de Empate
+          // Regla de Empate
+                          if (totalObjetos == 0) {
+                              cout << "\n¡EMPATE! No quedan objetos para tomar." << endl;
+                              puntos1 += 1;
+                              puntos2 += 1;
+                              partidaActiva = false;
+                              break;
+                          }
 
+                          // Regla de Pérdida por 1 objeto restante
+                          if (totalObjetos == 1) {
+                              cout << "\n" << nombreActual << ", solo queda 1 objeto. ¡HAS PERDIDO!" << endl;
+                              if (turno % 2 != 0) {
+                                  puntos2 += 3; // Gana el otro
+                                  cout << "¡Ganador de la partida: " << jugador2 << "!" << endl;
+                              } else {
+                                  puntos1 += 3;
+                                  cout << "¡Ganador de la partida: " << jugador1 << "!" << endl;
+                              }
+                              partidaActiva = false;
+                              break;
+                          }
         // Regla de Pérdida por 1 objeto restante
 
         // Mostrar turno y tablero
